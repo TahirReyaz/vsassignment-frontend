@@ -8,7 +8,9 @@ import { useStore } from "./store";
 import { shallow } from "zustand/shallow";
 
 import "reactflow/dist/style.css";
+
 import Node from "./node";
+import { nodeProps } from "./constants";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -43,7 +45,17 @@ export const PipelineUI = () => {
   } = useStore(selector, shallow);
 
   const getInitNodeData = (nodeID, type) => {
-    let nodeData = { id: nodeID, nodeType: `${type}` };
+    const { title, label, userInput, rightHandles, leftHandles } =
+      nodeProps[type];
+    let nodeData = {
+      id: nodeID,
+      nodeType: `${type}`,
+      title,
+      label,
+      userInput,
+      rightHandles,
+      leftHandles,
+    };
     return nodeData;
   };
 
