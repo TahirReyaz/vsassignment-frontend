@@ -19,6 +19,7 @@ const nodeTypes = {
   llm: Node,
   customOutput: Node,
   text: Node,
+  dualNode: Node,
 };
 
 const selector = (state) => ({

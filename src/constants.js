@@ -23,4 +23,11 @@ export const nodeProps = {
     userInput: true,
     leftHandles: ["value"],
   },
+  dualNode: {
+    title: "Dual",
+    label: "Name:",
+    userInput: false,
+    leftHandles: ["system", "prompt"],
+    rightHandles: ["response", "request"],
+  },
 };

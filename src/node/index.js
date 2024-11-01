@@ -63,6 +63,9 @@ const Node = ({ id, data }) => {
             position={Position.Right}
             id={`${id}-${handle}`}
             key={index}
+            style={{
+              top: `${((index + 1) * 100) / (rightHandles.length + 1)}%`,
+            }}
           />
         ))}
     </div>
