@@ -1,7 +1,10 @@
+import { ToastContainer } from "react-toastify";
+
 import { PipelineToolbar } from "./toolbar";
 import { PipelineUI } from "./ui";
 import { SubmitButton } from "./submit";
-// import Nodebar from "./nodebar";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -10,6 +13,7 @@ function App() {
       <PipelineToolbar />
       <PipelineUI />
       <SubmitButton />
+      <ToastContainer />
     </div>
   );
 }

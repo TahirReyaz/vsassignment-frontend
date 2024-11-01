@@ -1,6 +1,8 @@
 import { shallow } from "zustand/shallow";
 import { useStore } from "./store";
 import { getDag } from "./lib/api";
+import { toast } from "react-toastify";
+import Alert from "./alert";
 
 export const SubmitButton = () => {
   const selector = (state) => ({
@@ -12,8 +14,18 @@ export const SubmitButton = () => {
   const handleSubmit = async () => {
     try {
       const res = await getDag(nodes, edges);
+      toast(
+        <Alert
+          {...{
+            numEdges: res.num_edges,
+            numNodes: res.num_nodes,
+            isDag: res.is_dag,
+          }}
+        />
+      );
       console.log({ res });
     } catch (error) {
+      toast.error("There was some problem processing the data");
       console.error(error);
     }
   };
