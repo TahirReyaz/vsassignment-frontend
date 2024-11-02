@@ -3,7 +3,12 @@
 // --------------------------------------------------
 
 import { useState, useRef, useCallback } from "react";
-import ReactFlow, { Controls, Background, MiniMap } from "reactflow";
+import ReactFlow, {
+  Controls,
+  Background,
+  MiniMap,
+  BackgroundVariant,
+} from "reactflow";
 import { useStore } from "./store";
 import { shallow } from "zustand/shallow";
 
@@ -20,6 +25,7 @@ const nodeTypes = {
   customOutput: Node,
   text: Node,
   dualNode: Node,
+  pipeline: Node,
 };
 
 const selector = (state) => ({
@@ -102,7 +108,7 @@ export const PipelineUI = () => {
 
   return (
     <>
-      <div ref={reactFlowWrapper} style={{ width: "100wv", height: "70vh" }}>
+      <div ref={reactFlowWrapper} style={{ width: "100wv", height: "80vh" }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -117,9 +123,13 @@ export const PipelineUI = () => {
           snapGrid={[gridSize, gridSize]}
           connectionLineType="smoothstep"
         >
-          <Background color="#aaa" gap={gridSize} />
+          <Background
+            color="#444"
+            className="bg-gray-400/10"
+            variant={BackgroundVariant.Dots}
+          />
           <Controls />
-          <MiniMap />
+          <MiniMap className="shadow-lg shadow-gray-400/50" />
         </ReactFlow>
       </div>
     </>

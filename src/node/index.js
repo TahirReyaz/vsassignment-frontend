@@ -53,6 +53,8 @@ const Node = ({ id, data }) => {
             id={`${id}-${handle}`}
             style={{
               top: `${((index + 1) * 100) / (sources.length + 1)}%`,
+              padding: "4px",
+              backgroundColor: "#bc7dff",
             }}
             key={index}
           />
@@ -94,6 +96,8 @@ const Node = ({ id, data }) => {
             key={index}
             style={{
               top: `${((index + 1) * 100) / (rightHandles.length + 1)}%`,
+              padding: "4px",
+              backgroundColor: "#bc7dff",
             }}
           />
         ))}

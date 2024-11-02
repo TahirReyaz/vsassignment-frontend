@@ -30,6 +30,13 @@ export const nodeProps = {
     leftHandles: ["system", "prompt"],
     rightHandles: ["response", "request"],
   },
+  pipeline: {
+    title: "Pipeline",
+    lable: "Name:",
+    userInput: true,
+    leftHandles: ["pipeinput"],
+    rightHandles: ["pipeoutput"],
+  },
 };
 
 export const backendUrl = "http://127.0.0.1:8000";

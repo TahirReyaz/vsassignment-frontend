@@ -17,13 +17,12 @@ export const SubmitButton = () => {
       toast(
         <Alert
           {...{
-            numEdges: res.num_edges,
-            numNodes: res.num_nodes,
-            isDag: res.is_dag,
+            numEdges: res?.num_edges ?? 0,
+            numNodes: res?.num_nodes ?? 0,
+            isDag: !!res?.is_dag,
           }}
         />
       );
-      console.log({ res });
     } catch (error) {
       toast.error("There was some problem processing the data");
       console.error(error);
