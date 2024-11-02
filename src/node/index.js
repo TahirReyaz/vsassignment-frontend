@@ -4,7 +4,7 @@ import { extractAndValidateVariables } from "../utils";
 
 const Node = ({ id, data }) => {
   const [text, setText] = useState("");
-  const [sources, setSources] = useState(data.leftHandles);
+  const [targets, setTargets] = useState(data.leftHandles);
   const updateNodeInternals = useUpdateNodeInternals();
 
   const textareaRef = useRef(null);
@@ -22,19 +22,19 @@ const Node = ({ id, data }) => {
   useEffect(() => {
     if (nodeType === "text" && text.includes("{{") && text.includes("}}")) {
       const parsedVars = extractAndValidateVariables(text);
-      let newSources = [];
+      let newTargets = [];
       if (leftHandles) {
-        newSources = [...leftHandles];
+        newTargets = [...leftHandles];
       }
-      newSources = [...newSources, ...parsedVars];
-      setSources(newSources);
+      newTargets = [...newTargets, ...parsedVars];
+      setTargets(newTargets);
     }
   }, [text, data, leftHandles]);
 
   // For letting react-flow know about the change in the number of sources
   useEffect(() => {
     updateNodeInternals(id);
-  }, [id, sources]);
+  }, [id, targets]);
 
   // For adjusting height of text area on text update
   useEffect(() => {
@@ -45,25 +45,23 @@ const Node = ({ id, data }) => {
 
   return (
     <div className="border border-vsPurpleLight border-1 bg-white rounded-md p-4">
-      {sources?.length > 0 &&
-        sources.map((handle, index) => (
+      {targets?.length > 0 &&
+        targets.map((handle, index) => (
           <Handle
             type="target"
             position={Position.Left}
             id={`${id}-${handle}`}
             style={{
-              top: `${((index + 1) * 100) / (sources.length + 1)}%`,
+              top: `${((index + 1) * 100) / (targets.length + 1)}%`,
               padding: "4px",
               backgroundColor: "#bc7dff",
             }}
             key={index}
             className="relative"
           >
-            {nodeType === "text" && (
-              <span className="absolute -bottom-3 -left-10 text-xs text-vsPurpleDark">
-                {handle}
-              </span>
-            )}
+            <span className="absolute -bottom-3 -left-10 text-xs text-vsPurpleDark">
+              {handle}
+            </span>
           </Handle>
         ))}
       <h2>{title}</h2>

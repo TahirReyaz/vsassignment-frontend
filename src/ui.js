@@ -26,6 +26,9 @@ const nodeTypes = {
   text: Node,
   dualNode: Node,
   pipeline: Node,
+  dummy1: Node,
+  dummy2: Node,
+  dummy3: Node,
 };
 
 const selector = (state) => ({

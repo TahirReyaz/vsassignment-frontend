@@ -31,6 +31,9 @@ export const PipelineToolbar = () => {
         <DraggableNode type="text" label="Text" Icon={ScrollTextIcon} />
         <DraggableNode type="dualNode" label="Dual" Icon={ArrowLeftRightIcon} />
         <DraggableNode type="pipeline" label="Pipeline" Icon={CirclePlayIcon} />
+        <DraggableNode type="dummy1" label="Dummy 1" Icon={CirclePlayIcon} />
+        <DraggableNode type="dummy2" label="Dummy 2" Icon={CirclePlayIcon} />
+        {/* <DraggableNode type="dummy3" label="Dummy 3" Icon={CirclePlayIcon} /> */}
       </div>
     </div>
   );
