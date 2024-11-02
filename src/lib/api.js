@@ -13,5 +13,6 @@ export const getDag = async (nodes, edges) => {
     return result;
   } catch (error) {
     console.error("Error submitting data:", error);
+    throw error;
   }
 };

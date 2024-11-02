@@ -24,8 +24,7 @@ export const SubmitButton = () => {
         />
       );
     } catch (error) {
-      toast.error("There was some problem processing the data");
-      console.error(error);
+      toast.error("Error occurred while processing the data");
     }
   };
 

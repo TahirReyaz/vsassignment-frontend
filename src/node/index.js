@@ -57,7 +57,14 @@ const Node = ({ id, data }) => {
               backgroundColor: "#bc7dff",
             }}
             key={index}
-          />
+            className="relative"
+          >
+            {nodeType === "text" && (
+              <span className="absolute -bottom-3 -left-10 text-xs text-vsPurpleDark">
+                {handle}
+              </span>
+            )}
+          </Handle>
         ))}
       <h2>{title}</h2>
       <h3>{label}</h3>
