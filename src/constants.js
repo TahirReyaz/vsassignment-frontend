@@ -67,13 +67,13 @@ export const nodeProps = {
     leftHandles: ["input"],
     rightHandles: ["output"],
   },
-  // dummy3: {
-  //   title: "Dummy 3",
-  //   lable: "Name",
-  //   userInput: true,
-  //   leftHandles: ["input"],
-  //   rightHandles: ["output"],
-  // },
+  dummy3: {
+    title: "Dummy 3",
+    lable: "Name",
+    userInput: true,
+    leftHandles: ["input"],
+    rightHandles: ["output"],
+  },
 };
 
 export const backendUrl = "http://127.0.0.1:8000";
